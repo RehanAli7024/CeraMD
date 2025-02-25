@@ -1,0 +1,52 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+*.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and debugging
+*.log
+logs/
+debug.log
+
+# Environment variables and secrets
+.env
+*.env
+config/settings.ini
+
+# Compiled files
+*.so
+*.dll
+*.dylib
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Testing and coverage reports
+.coverage
+.tox/
+.nox/
+htmlcov/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MyPy and Type checking
+.mypy_cache/
+.dmypy.json
+.pytype/
+
+# PyInstaller artifacts
+*.spec
