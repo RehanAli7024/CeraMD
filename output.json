@@ -1,0 +1,81 @@
+{
+  "transcript": [
+    {
+      "speaker": "Doctor",
+      "text": "Good morning, Mr. Smith. I'm Doctor Patel. What brings you in today?",
+      "timestamp": "2025-02-26T01:02:21.644440"
+    },
+    {
+      "speaker": "Patient",
+      "text": "Morning, doctor. I have been feeling really tired lately, and I have this persistent cough that won't go away. It's been going on for about three weeks now.",
+      "timestamp": "2025-02-26T01:02:26.144341-2025-02-26T01:02:32.636157"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "The cough is dry, or are you bringing up any mucus?",
+      "timestamp": "2025-02-26T01:02:35.978781"
+    },
+    {
+      "speaker": "Patient",
+      "text": "It's almost dry, but sometimes I do cough up some yellowish mucus.",
+      "timestamp": "2025-02-26T01:02:37.885073-2025-02-26T01:02:41.714848"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Have you noticed any fever, chills, or night sweats?",
+      "timestamp": "2025-02-26T01:02:44.218221"
+    },
+    {
+      "speaker": "Patient",
+      "text": "Yes. I've had mild fevers on and off, and I wake up sweating at night.",
+      "timestamp": "2025-02-26T01:02:49.378660-2025-02-26T01:02:50.210242"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Any shortness of breath or chest pain?",
+      "timestamp": "2025-02-26T01:02:52.260509"
+    },
+    {
+      "speaker": "Patient",
+      "text": "I do feel a little short of breath when we were walking up the stairs, but I haven't had any real chest pain.",
+      "timestamp": "2025-02-26T01:02:57.495987-2025-02-26T01:03:00.090894"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Have you had any unintended pain?",
+      "timestamp": "2025-02-26T01:03:02.639798"
+    },
+    {
+      "speaker": "Patient",
+      "text": "Yes. I have lost about seven pounds in the last month, but I haven't changed my diet.",
+      "timestamp": "2025-02-26T01:03:07.784313-2025-02-26T01:03:08.947174"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Do you smoke or have a history of smoking?",
+      "timestamp": "2025-02-26T01:03:10.216732"
+    },
+    {
+      "speaker": "Patient",
+      "text": "I used to smoke about a pack a day for fifteen years, but I quit five years ago.",
+      "timestamp": "2025-02-26T01:03:15.363062-2025-02-26T01:03:16.865915"
+    },
+    {
+      "speaker": "Doctor",
+      "text": "Have you traveled recently or been around anyone who is sick?",
+      "timestamp": "2025-02-26T01:03:20.482914"
+    },
+    {
+      "speaker": "Patient",
+      "text": "No recent travel, but I work in a homeless shelter, so I am around a lot of different people.",
+      "timestamp": "2025-02-26T01:03:25.679234-2025-02-26T01:03:26.683336"
+    },
+    {
+      "speaker": "Patient",
+      "text": "Got it. Like, you run some tests during a chest x-ray and simpler work to help us determine what might be causing a symptom.",
+      "timestamp": "2025-02-26T01:03:31.884668-2025-02-26T01:03:33.442482"
+    }
+  ],
+  "soap_note": null,
+  "differential_diagnosis": null
+}
