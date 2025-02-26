@@ -1,43 +1,49 @@
+from openai import OpenAI
 import json
-import os
-from huggingface_hub import InferenceClient
 
-def read_transcript(file_path):
-    with open(file_path, 'r') as f:
-        data = json.load(f)
-    return data['transcript']
+client = OpenAI(
+  base_url = "https://integrate.api.nvidia.com/v1",
+  api_key = "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"
+)
 
-def format_transcript(transcript):
-    return "\n".join([f"{entry['speaker']}: {entry['text']}" for entry in transcript])
+# Load the transcript from the JSON file
+with open('output.json', 'r') as f:
+    data = json.load(f)
 
-def generate_soap(transcript, api_key):
-    client = InferenceClient(model="google/flan-t5-large", token=api_key)
+transcript = "\n".join([f"{entry['speaker']}: {entry['text']}" for entry in data['transcript']])
 
-    prompt = f"""Generate SOAP note from clinical conversation:
+prompt = f"""Generate a detailed SOAP note based on the following doctor-patient conversation:
 
 {transcript}
 
-Structure:
-Subjective: [CC, HPI, ROS]
-Objective: [Vitals, Physical Exam] 
-Assessment: [DDx]
-Plan: [Workup]
+Please structure the SOAP note as follows:
+1. Subjective: Patient's reported symptoms and history
+2. Objective: Any measurable data mentioned (if available)
+3. Assessment: Potential diagnoses based on the information provided
+4. Plan: Recommended tests, treatments, or follow-up actions
 
-Use ONLY information from transcript. No interpretations."""
+Use only the information provided in the conversation. Do not invent or assume any details not explicitly stated."""
 
-    response = client.text_generation(prompt, max_new_tokens=250)
-    return response
+completion = client.chat.completions.create(
+  model="writer/palmyra-med-70b",
+  messages=[{"role":"user","content":prompt}],
+  temperature=0.2,
+  top_p=0.7,
+  max_tokens=1024,
+  stream=True
+)
 
-def main(json_file_path, api_key):
-    transcript_data = read_transcript(json_file_path)
-    transcript_text = format_transcript(transcript_data)
-    soap_note = generate_soap(transcript_text, api_key)
-    return soap_note
+# Collect the generated SOAP note
+soap_note = ""
+for chunk in completion:
+  if chunk.choices[0].delta.content is not None:
+    soap_note += chunk.choices[0].delta.content
 
-if __name__ == "__main__":
-    api_key = "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"
-    if not api_key:
-        raise ValueError("HF_API_KEY environment variable not set")
+# Update the JSON data with the generated SOAP note
+data['soap_note'] = soap_note
 
-    json_file_path = "output.json"
-    print(main(json_file_path, api_key))
+# Write the updated data back to the JSON file
+with open('output.json', 'w') as f:
+    json.dump(data, f, indent=2)
+
+print("SOAP note has been generated and saved to output.json")
