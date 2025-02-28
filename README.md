@@ -5,17 +5,20 @@ CeraMD is a modern web application designed to assist medical professionals with
 ## 🌟 Features
 
 - Audio recording and transcription
-- Real-time audio processing
+- Real-time audio processing 
 - Secure data storage
 - Modern, responsive UI
 - Dockerized deployment
 - RESTful API endpoints
 
+## LLMs Used 
+- "writer/palmyra-med-70b" for SOAP note generation and differential diagnosis.
+- "meta-llama/llama-3-8b-instruct" for transcript processing.
+
 ## 🚀 Live Demo
 
-- Frontend Application: [Coming Soon](#)
-- API Documentation: [Coming Soon](#) (Swagger UI)
-- API Base URL: [Coming Soon](#)
+- Frontend Application: [https://cera-md-zeta.vercel.app/](#)
+- API Base URL: [https://ceramd-1.onrender.com](#)
 
 ## 🛠️ Tech Stack
 
@@ -27,8 +30,6 @@ CeraMD is a modern web application designed to assist medical professionals with
 
 ### Backend
 - FastAPI (Python)
-- SQLAlchemy
-- PostgreSQL
 - Docker
 
 ## 📋 Prerequisites
@@ -45,21 +46,7 @@ git clone https://github.com/RehanAli7024/CeraMD.git
 cd CeraMD
 ```
 
-### 2. Environment Variables
-Create `.env` files in both backend and frontend directories:
-
-Backend `.env`:
-```env
-DATABASE_URL=your_database_url
-SECRET_KEY=your_secret_key
-```
-
-Frontend `.env`:
-```env
-VITE_API_URL=http://localhost:8000
-```
-
-### 3. Running with Docker (Recommended)
+### 2. Running with Docker (Recommended)
 ```bash
 # Build and start all services
 docker compose up --build
@@ -73,7 +60,7 @@ The application will be available at:
 - Backend API: http://localhost:8000
 - API Documentation: http://localhost:8000/docs
 
-### 4. Manual Setup (Alternative)
+### 3. Manual Setup (Alternative)
 
 #### Backend Setup
 ```bash
@@ -93,43 +80,13 @@ npm run dev
 
 ## 📡 API Endpoints
 
-### Authentication
-- `POST /api/auth/login`: User login
-- `POST /api/auth/register`: User registration
-
 ### Transcription
-- `POST /api/transcribe`: Upload audio for transcription
-- `GET /api/transcriptions`: Get all transcriptions
-- `GET /api/transcriptions/{id}`: Get specific transcription
+- speech to text transcription is directly achieved using Deepgram API with React.
+- `POST /api/process-transcript`: Transcribed audio processed and diaterized
+- `POST /api/generate-soap`: Generate Soap Note
+- `POST /api/generate-differential-diagnosis`: Get a differntial diagnosis
 
 For detailed API documentation, visit http://localhost:8000/docs when the backend is running.
-
-## 🧪 Testing
-
-### API Testing with Curl
-
-1. Test the health check endpoint:
-```bash
-curl http://localhost:8000/health
-```
-
-2. Upload an audio file:
-```bash
-curl -X POST http://localhost:8000/api/transcribe \
-  -H "Content-Type: multipart/form-data" \
-  -F "file=@/path/to/audio.mp3"
-```
-
-### Running Tests
-```bash
-# Backend tests
-cd backend
-pytest
-
-# Frontend tests
-cd project
-npm test
-```
 
 ## 📦 Deployment
 
@@ -152,10 +109,6 @@ docker compose push
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Contact
 
