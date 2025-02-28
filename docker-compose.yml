@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - ./backend:/app
+    networks:
+      - ceramd-network
+
+  frontend:
+    build:
+      context: ./project
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./project:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - ceramd-network
+
+networks:
+  ceramd-network:
+    driver: bridge
