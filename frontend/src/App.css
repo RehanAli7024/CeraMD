@@ -1,42 +1,197 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* app.css */
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Base Styles */
+body {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .audio-recorder {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  
+  
+  /* Button Group */
+  .button-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
-}
+  
+  .button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .button-record { 
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .button-process {
+    background: #3498db;
+    color: white;
+  }
+  
+  .button-generate-soap {
+    background: #27ae60;
+    color: white;
+  }
+  
+  .button-generate-diagnosis {
+    background: #9b59b6;
+    color: white;
+  }
+  
+  .button-clear {
+    background: #95a5a6;
+    color: white;
+  }
+  
+  .button-save-pdf {
+    background: #f39c12;
+    color: white;
+  }
+  
+  /* Content Containers */
+  .content-container {
+    background: #ffffff;
+    border: 1px solid #e8ecef;
+    border-radius: 10px;
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+  
+  .transcript-entry {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+  }
+  
+  .speaker {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-right: 0.5rem;
+  }
+  
+  .timestamp {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+  
+  /* Medical Content Styles */
+  .soap-note, .differential-diagnosis {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  .soap-note {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+  }
+  
+  .differential-diagnosis {
+    background: #e8f0fe;
+    border: 1px solid #c0d4e8;
+  }
+  
+  .soap-note h3, .differential-diagnosis h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(44, 62, 80, 0.1);
+  }
+  
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #34495e;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .audio-recorder {
+      padding: 1rem;
+      margin: 1rem;
+    }
+    
+    .button-group {
+      grid-template-columns: 1fr;
+    }
+    
+    h2 {
+      font-size: 1.4rem;
+    }
+    
+    .content-container {
+      max-height: 70vh;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .transcript-entry, .soap-note, .differential-diagnosis {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
