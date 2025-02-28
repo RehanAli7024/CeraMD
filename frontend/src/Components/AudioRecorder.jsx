@@ -110,7 +110,7 @@ const AudioRecorder = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/process-transcript", {
+      const response = await fetch("https://ceramd-1.onrender.com/process-transcript", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const AudioRecorder = () => {
     if (!processedTranscript) return;
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/generate-soap", {
+      const response = await fetch("https://ceramd-1.onrender.com/generate-soap", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -162,7 +162,7 @@ const AudioRecorder = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/generate-differential-diagnosis",
+        "https://ceramd-1.onrender.com/generate-differential-diagnosis",
         {
           method: "POST",
           headers: {
